@@ -26,6 +26,7 @@ const mainRouter = () => {
             render={props => (
               <OrginialD3
                 header={'Original D3'}
+                userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
                 {...props}
@@ -37,6 +38,7 @@ const mainRouter = () => {
             render={props => (
               <GridLineMain
                 header={'Grid Components'}
+                userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
                 {...props}

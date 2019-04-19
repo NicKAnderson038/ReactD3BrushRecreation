@@ -156,9 +156,9 @@ class GridLineMain extends PureComponent {
   }
 
   render() {
-    const { header, width, height } = this.props
+    const { header, userSelect, width, height } = this.props
     return (
-      <div>
+      <div style={userSelect}>
         <br />
         <h4>{header}</h4>
         <br />

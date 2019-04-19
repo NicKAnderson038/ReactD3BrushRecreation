@@ -10,7 +10,7 @@ const header = {
 }
 
 const Button = styled.button`
-  padding: 4px 10px;
+  /* padding: 4px 10px; */
   border-radius: 4%;
   outline: none;
   background-color: white;
@@ -23,9 +23,6 @@ const Button = styled.button`
     box-shadow: 0 7px 14px rgba(48, 51, 54, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
     transform: translateY(-1px);
   }
-  /* &:disabled {
-    background-color: #cccccc !important;
-  } */
   &:active {
     background-color: #dc5379;
     border-radius: 4%;
@@ -38,7 +35,9 @@ const Button = styled.button`
 const link = {
   fontSize: '16px',
   textDecoration: 'none',
-  color: 'black'
+  color: 'black',
+  margin: '8px',
+  userSelect: 'none'
 }
 
 const nav = () => {

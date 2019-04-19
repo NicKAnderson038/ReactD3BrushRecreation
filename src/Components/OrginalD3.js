@@ -146,13 +146,13 @@ class OriginalD3 extends PureComponent {
   }
 
   render() {
-    const { header } = this.props
+    const { header, userSelect, width, height } = this.props
     return (
-      <div>
+      <div style={userSelect}>
         <br />
         <h4>{header}</h4>
         <br />
-        <svg width="960" height="600" />
+        <svg width={width} height={height} />
       </div>
     )
   }
