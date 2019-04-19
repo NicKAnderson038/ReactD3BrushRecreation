@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom'
 
 import './styles.css'
 
-import OrginialD3 from './Components/OrginalD3'
+import MainRouter from './router'
 
 function App() {
   return (
     <div className="App">
-      <OrginialD3 />
+      <MainRouter />
     </div>
   )
 }

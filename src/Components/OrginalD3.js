@@ -153,9 +153,10 @@ class OriginalD3 extends Component {
   }
 
   render() {
+    const { header } = this.props
     return (
       <div>
-        <h2>Original D3</h2>
+        <h2>{header}</h2>
         <svg width="960" height="600" />
       </div>
     )
