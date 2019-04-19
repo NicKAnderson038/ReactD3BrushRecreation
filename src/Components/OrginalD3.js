@@ -28,7 +28,7 @@ class OriginalD3 extends Component {
     this.drawSvg()
   }
 
-  drawSvg = () => {
+  drawSvg() {
     const random = d3.randomNormal(0, 0.2),
       sqrt3 = Math.sqrt(3),
       points0 = d3.range(300).map(function() {
