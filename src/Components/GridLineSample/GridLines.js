@@ -17,9 +17,9 @@ class GridLines extends PureComponent {
   }
 
   d3Render() {
-    const height = this.props.height
-    const width = this.props.width
-    const x = d3
+    const height = this.props.height,
+      width = this.props.width,
+      x = d3
         .scaleLinear()
         .domain([0, 1])
         .range([0, width]),
