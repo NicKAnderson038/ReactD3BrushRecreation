@@ -1,29 +1,5 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
-
-// class HorizontalGridLines extends Component {
-//   componentDidUpdate() {
-//     this.renderGrid()
-//   }
-//   componentDidMount() {
-//     this.renderGrid()
-//   }
-//   renderGrid() {
-//     let node = ReactDOM.findDOMNode(this)
-//     d3.select(node).call(this.props.grid)
-//   }
-//   render() {
-//     var translate = 'translate(0,' + this.props.h + ')'
-//     return (
-//       <g
-//         className="y-grid"
-//         transform={this.props.gridType == 'x' ? translate : ''}
-//       />
-//     )
-//   }
-// }
-
-// export default HorizontalGridLines
 
 import styled from '@emotion/styled'
 
@@ -31,12 +7,7 @@ const Line = styled.text`
   stroke: grey;
 `
 
-class GridLines extends Component {
-  constructor() {
-    super()
-    this.gRef = React.createRef()
-  }
-
+class GridLines extends PureComponent {
   componentDidUpdate() {
     this.d3Render()
   }
@@ -48,22 +19,22 @@ class GridLines extends Component {
   d3Render() {
     const height = this.props.height
     const width = this.props.width
-    const xg = d3
+    const x = d3
         .scaleLinear()
         .domain([0, 1])
         .range([0, width]),
-      yg = d3
+      y = d3
         .scaleLinear()
         .domain([0, 1])
         .range([height, 0])
     // gridlines in x axis function
     function xMakeGridlines() {
-      return d3.axisBottom(xg).ticks(5)
+      return d3.axisBottom(x).ticks(5)
     }
 
     // gridlines in y axis function
     function yMakeGridlines() {
-      return d3.axisLeft(yg).ticks(5)
+      return d3.axisLeft(y).ticks(5)
     }
 
     // add the X gridlines
@@ -89,10 +60,8 @@ class GridLines extends Component {
   }
 
   render() {
-    const { x = 50, y = 50 } = this.props
-
     return (
-      <g ref={this.gRef} transform={`translate(${x}, ${y})`}>
+      <g>
         <Line />
       </g>
     )
