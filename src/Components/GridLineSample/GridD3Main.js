@@ -54,6 +54,16 @@ class GridLineMain extends PureComponent {
     const xAxis = d3.axisTop(x).ticks(12),
       yAxis = d3.axisRight(y).ticks((12 * height) / width)
 
+    // gridlines in x axis function
+    function xMakeGridlines() {
+      return d3.axisBottom(x).ticks(5)
+    }
+
+    // gridlines in y axis function
+    function yMakeGridlines() {
+      return d3.axisLeft(y).ticks(5)
+    }
+
     let brush = d3.brush().on('end', brushended),
       idleTimeout,
       idleDelay = 350
@@ -85,6 +95,27 @@ class GridLineMain extends PureComponent {
       .attr('class', 'axis axis--y')
       .attr('transform', 'translate(10,0)')
       .call(yAxis)
+
+    // add the X gridlines
+    svg
+      .append('g')
+      .attr('class', 'grid')
+      .attr('transform', 'translate(0,' + height + ')')
+      .call(
+        xMakeGridlines()
+          .tickSize(-height)
+          .tickFormat('')
+      )
+
+    // add the Y gridlines
+    svg
+      .append('g')
+      .attr('class', 'grid')
+      .call(
+        yMakeGridlines()
+          .tickSize(-width)
+          .tickFormat('')
+      )
 
     svg.selectAll('.domain').style('display', 'none')
 
