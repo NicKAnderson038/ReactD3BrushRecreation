@@ -182,6 +182,7 @@ class GridLineMain extends PureComponent {
       <div>
         <br />
         <h4>{header}</h4>
+        <br />
         <svg width="960" height="600" />
       </div>
     )
