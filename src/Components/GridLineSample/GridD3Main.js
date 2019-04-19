@@ -56,15 +56,7 @@ class GridLineMain extends PureComponent {
         .scaleLinear()
         .domain(y0)
         .range([height, 0]),
-      z = d3.scaleOrdinal(d3.schemeCategory10),
-      xg = d3
-        .scaleLinear()
-        .domain([0, 1])
-        .range([0, width]),
-      yg = d3
-        .scaleLinear()
-        .domain([0, 1])
-        .range([height, 0])
+      z = d3.scaleOrdinal(d3.schemeCategory10)
 
     const xAxis = d3.axisTop(x).ticks(12),
       yAxis = d3.axisRight(y).ticks((12 * height) / width)
