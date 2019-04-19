@@ -1,21 +1,14 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
 const background = {
-  backgroundColor: 'white !important'
+  backgroundColor: 'white'
 }
 
 const logColor =
   'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
 
-class OriginalD3 extends Component {
-  // state = {
-  //   random: d3.randomNormal(0, 0.2),
-  //   sqrt3: Math.sqrt(3),
-  //   points0: d3.range(300).map(function() {
-  //     return [this.state.random() + sqrt3, this.state.random() + 1, 0]
-  //   })
-  // }
+class OriginalD3 extends PureComponent {
   componentDidMount() {
     console.log(`%c componentDidMount 😎`, logColor)
     this.drawSvg()
