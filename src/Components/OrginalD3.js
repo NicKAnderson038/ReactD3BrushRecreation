@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
+const background = {
+  backgroundColor: 'white !important'
+}
+
 const logColor =
   'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
 
@@ -155,8 +159,9 @@ class OriginalD3 extends Component {
   render() {
     const { header } = this.props
     return (
-      <div>
-        <h2>{header}</h2>
+      <div style={background}>
+        <br />
+        <h4>{header}</h4>
         <svg width="960" height="600" />
       </div>
     )
