@@ -8,6 +8,9 @@ import {
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
+const GridLineMain = lazy(() =>
+  import('./Components/GridLineSample/GridD3Main')
+)
 const Loading = () => <div>Loading...</div>
 
 const mainRouter = () => {
@@ -24,7 +27,7 @@ const mainRouter = () => {
           <Route
             path="/grid-components"
             render={props => (
-              <OrginialD3 header={'Grid Components'} {...props} />
+              <GridLineMain header={'Grid Components'} {...props} />
             )}
           />
         </Switch>
