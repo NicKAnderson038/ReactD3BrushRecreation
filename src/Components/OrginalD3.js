@@ -17,6 +17,13 @@ class OriginalD3 extends Component {
     this.drawSvg()
   }
 
+  static getDerivedStateFromProps(props, state) {
+    console.log(
+      `%c getDerivedStateFromProps: props=${props} & state=${state} 😎`,
+      'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
+    )
+  }
+
   componentDidUpdate() {
     console.log(
       `%c componentDidUpdate 😎`,
