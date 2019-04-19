@@ -72,9 +72,3 @@ class GridLines extends PureComponent {
 }
 
 export default GridLines
-
-{
-  /* <g ref={this.gRef} transform={`translate(${x}, ${y})`}>
-        <Text {...this.labelPos}>{label}</Text>
-      </g> */
-}
