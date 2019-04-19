@@ -1,10 +1,6 @@
 import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
-const background = {
-  backgroundColor: 'white'
-}
-
 const logColor =
   'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
 
@@ -152,7 +148,7 @@ class OriginalD3 extends PureComponent {
   render() {
     const { header } = this.props
     return (
-      <div style={background}>
+      <div>
         <br />
         <h4>{header}</h4>
         <svg width="960" height="600" />
