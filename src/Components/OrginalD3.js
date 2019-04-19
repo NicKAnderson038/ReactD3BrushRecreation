@@ -107,8 +107,8 @@ class OriginalD3 extends Component {
         x.domain(x0)
         y.domain(y0)
       } else {
-        console.log(s)
-        console.log(x)
+        // console.log(s)
+        // console.log(x)
         x.domain([s[0][0], s[1][0]].map(x.invert, x))
         y.domain([s[1][1], s[0][1]].map(y.invert, y))
         svg.select('.brush').call(brush.move, null)
@@ -131,22 +131,22 @@ class OriginalD3 extends Component {
         .transition(t)
         .call(yAxis)
       const circle = svg.selectAll('circle')
-      console.log('circle: ', circle)
+      // console.log('circle: ', circle)
       svg
         .selectAll('circle')
         .transition(t)
         .attr('cx', d => {
-          console.log(d)
-          console.log(x)
+          // console.log(d)
+          // console.log(x)
           let cx = x(d[0])
-          console.log(cx)
+          // console.log(cx)
           return cx
         })
         .attr('cy', d => {
-          console.log(d)
-          console.log(y)
+          // console.log(d)
+          // console.log(y)
           let cy = y(d[1])
-          console.log(cy)
+          // console.log(cy)
           return cy
         })
     }
