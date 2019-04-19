@@ -27,15 +27,12 @@ class GridLines extends PureComponent {
         .scaleLinear()
         .domain([0, 1])
         .range([height, 0])
+
     // gridlines in x axis function
-    function xMakeGridlines() {
-      return d3.axisBottom(x).ticks(5)
-    }
+    const xMakeGridlines = () => d3.axisBottom(x).ticks(5)
 
     // gridlines in y axis function
-    function yMakeGridlines() {
-      return d3.axisLeft(y).ticks(5)
-    }
+    const yMakeGridlines = () => d3.axisLeft(y).ticks(5)
 
     // add the X gridlines
     d3.select('svg')
