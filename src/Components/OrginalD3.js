@@ -10,12 +10,18 @@ class OriginalD3 extends Component {
   //   })
   // }
   componentDidMount() {
-    console.log('componentDidMount')
+    console.log(
+      `%c componentDidMount 😎`,
+      'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
+    )
     this.drawSvg()
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate')
+    console.log(
+      `%c componentDidUpdate 😎`,
+      'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
+    )
     this.drawSvg()
   }
 
