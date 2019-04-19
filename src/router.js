@@ -22,6 +22,7 @@ const mainRouter = () => {
           <Route
             exact
             path="/"
+            //component={OrginialD3}
             render={props => <OrginialD3 header={'Original D3'} {...props} />}
           />
           <Route
