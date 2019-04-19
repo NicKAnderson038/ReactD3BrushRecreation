@@ -3,11 +3,16 @@ import * as d3 from 'd3'
 
 import styled from '@emotion/styled'
 
-const Line = styled.text`
-  stroke: grey;
-`
+// const Line = styled.text`
+//   stroke: grey !important;
+// `
 
 class GridLines extends PureComponent {
+  // constructor() {
+  //   super()
+  //   this.gRef = React.createRef()
+  // }
+
   componentDidUpdate() {
     this.d3Render()
   }
@@ -29,10 +34,10 @@ class GridLines extends PureComponent {
         .range([height, 0])
 
     // gridlines in x axis function
-    const xMakeGridlines = () => d3.axisBottom(x).ticks(5)
+    const xMakeGridlines = () => d3.axisBottom(x).ticks(10)
 
     // gridlines in y axis function
-    const yMakeGridlines = () => d3.axisLeft(y).ticks(5)
+    const yMakeGridlines = () => d3.axisLeft(y).ticks(10)
 
     // add the X gridlines
     d3.select('svg')
@@ -58,11 +63,18 @@ class GridLines extends PureComponent {
 
   render() {
     return (
-      <g>
-        <Line />
-      </g>
+      // <g ref={this.gRef}>
+      //   {/* <Line /> */}
+      // </g>
+      <div>{this.d3Render()}</div>
     )
   }
 }
 
 export default GridLines
+
+{
+  /* <g ref={this.gRef} transform={`translate(${x}, ${y})`}>
+        <Text {...this.labelPos}>{label}</Text>
+      </g> */
+}

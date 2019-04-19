@@ -7,6 +7,11 @@ const logColor =
   'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
 
 class GridLineMain extends PureComponent {
+  constructor() {
+    super()
+    this.gRef = React.createRef()
+  }
+
   componentDidMount() {
     console.log(`%c componentDidMount 😎`, logColor)
     this.drawSvg()
