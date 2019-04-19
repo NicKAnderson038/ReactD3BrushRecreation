@@ -13,9 +13,9 @@ class GridLines extends PureComponent {
   //   this.gRef = React.createRef()
   // }
 
-  componentDidUpdate() {
-    this.d3Render()
-  }
+  // componentDidUpdate() {
+  //   this.d3Render()
+  // }
 
   componentDidMount() {
     this.d3Render()
