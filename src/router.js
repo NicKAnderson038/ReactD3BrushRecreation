@@ -23,12 +23,24 @@ const mainRouter = () => {
             exact
             path="/"
             //component={OrginialD3}
-            render={props => <OrginialD3 header={'Original D3'} {...props} />}
+            render={props => (
+              <OrginialD3
+                header={'Original D3'}
+                width={960}
+                height={600}
+                {...props}
+              />
+            )}
           />
           <Route
             path="/grid-components"
             render={props => (
-              <GridLineMain header={'Grid Components'} {...props} />
+              <GridLineMain
+                header={'Grid Components'}
+                width={960}
+                height={600}
+                {...props}
+              />
             )}
           />
         </Switch>

@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
+import GridLines from './GridLines'
+
 const logColor =
   'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
 
@@ -49,20 +51,18 @@ class GridLineMain extends PureComponent {
         .scaleLinear()
         .domain(y0)
         .range([height, 0]),
-      z = d3.scaleOrdinal(d3.schemeCategory10)
+      z = d3.scaleOrdinal(d3.schemeCategory10),
+      xg = d3
+        .scaleLinear()
+        .domain([0, 1])
+        .range([0, width]),
+      yg = d3
+        .scaleLinear()
+        .domain([0, 1])
+        .range([height, 0])
 
     const xAxis = d3.axisTop(x).ticks(12),
       yAxis = d3.axisRight(y).ticks((12 * height) / width)
-
-    // gridlines in x axis function
-    function xMakeGridlines() {
-      return d3.axisBottom(x).ticks(5)
-    }
-
-    // gridlines in y axis function
-    function yMakeGridlines() {
-      return d3.axisLeft(y).ticks(5)
-    }
 
     let brush = d3.brush().on('end', brushended),
       idleTimeout,
@@ -95,27 +95,6 @@ class GridLineMain extends PureComponent {
       .attr('class', 'axis axis--y')
       .attr('transform', 'translate(10,0)')
       .call(yAxis)
-
-    // add the X gridlines
-    svg
-      .append('g')
-      .attr('class', 'grid')
-      .attr('transform', 'translate(0,' + height + ')')
-      .call(
-        xMakeGridlines()
-          .tickSize(-height)
-          .tickFormat('')
-      )
-
-    // add the Y gridlines
-    svg
-      .append('g')
-      .attr('class', 'grid')
-      .call(
-        yMakeGridlines()
-          .tickSize(-width)
-          .tickFormat('')
-      )
 
     svg.selectAll('.domain').style('display', 'none')
 
@@ -177,13 +156,14 @@ class GridLineMain extends PureComponent {
   }
 
   render() {
-    const { header } = this.props
+    const { header, width, height } = this.props
     return (
       <div>
         <br />
         <h4>{header}</h4>
         <br />
-        <svg width="960" height="600" />
+        <svg width={width} height={height} />
+        <GridLines width={width} height={height} />
       </div>
     )
   }
