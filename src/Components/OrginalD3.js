@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
+const consoleLogColor =
+  'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
+
 class OriginalD3 extends Component {
   // state = {
   //   random: d3.randomNormal(0, 0.2),
@@ -10,25 +13,18 @@ class OriginalD3 extends Component {
   //   })
   // }
   componentDidMount() {
-    console.log(
-      `%c componentDidMount 😎`,
-      'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
-    )
+    console.log(`%c componentDidMount 😎`, consoleLogColor)
     this.drawSvg()
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(
-      `%c getDerivedStateFromProps: props=${props} & state=${state} 😎`,
-      'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
-    )
+    console.log(`%c getDerivedStateFromProps: 😎`, consoleLogColor)
+    console.log(props)
+    console.log(state)
   }
 
   componentDidUpdate() {
-    console.log(
-      `%c componentDidUpdate 😎`,
-      'color:pink;font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;'
-    )
+    console.log(`%c componentDidUpdate 😎`, consoleLogColor)
     this.drawSvg()
   }
 
