@@ -30,7 +30,7 @@ class GridLineMain extends PureComponent {
     const svg = d3.select('svg'),
       width = svg.attr('width'),
       height = svg.attr('height')
-    logColor(DOMAIN)
+
     const horizontal = [0, DOMAIN[0]],
       vertical = [0, DOMAIN[1]],
       x = d3
