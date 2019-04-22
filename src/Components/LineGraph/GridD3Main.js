@@ -24,32 +24,23 @@ class GridLineMain extends PureComponent {
   }
 
   drawSvg() {
-    const newData = data.map(d => {
-      return { x: d[0], y: d[1] }
-    })
-    let MAX_X = Math.max(...newData.map(d => d.x))
-    let MAX_Y = Math.max(...newData.map(d => d.y))
-
-    let x1 = val => (val / MAX_X) * width
-    let y1 = val => height - (val / MAX_Y) * height
-
+    // const oldCurveX = 'Displacement (in)'
+    // const oldCurveY = 'Load (lbf)'
+    const DOMAIN = Object.values(data[data.length - 1])
     const svg = d3.select('svg'),
       width = svg.attr('width'),
       height = svg.attr('height')
-
-    const k = height / width,
-      x0 = [0, 10],
-      y0 = [0, 10000],
+    logColor(DOMAIN)
+    const horizontal = [0, DOMAIN[0]],
+      vertical = [0, DOMAIN[1]],
       x = d3
         .scaleLinear()
-        .domain(x0)
+        .domain(horizontal)
         .range([0, width]),
-      // .rangeRound([0, x1]),
       y = d3
         .scaleLinear()
-        .domain(y0)
+        .domain(vertical)
         .range([height, 0])
-    // .rangeRound([y1, 0])
 
     const xAxis = d3.axisTop(x).ticks(12),
       yAxis = d3.axisRight(y).ticks((12 * height) / width)
@@ -95,8 +86,8 @@ class GridLineMain extends PureComponent {
       const s = d3.event.selection
       if (!s) {
         if (!idleTimeout) return (idleTimeout = setTimeout(idled, idleDelay))
-        x.domain(x0)
-        y.domain(y0)
+        x.domain(horizontal)
+        y.domain(vertical)
       } else {
         // console.log(s)
         // console.log(x)
@@ -126,34 +117,8 @@ class GridLineMain extends PureComponent {
       svg
         .selectAll('path')
         .transition(t)
-        .attr('cx', d => {
-          // console.log(d)
-          // console.log(x)
-          let cx = x(d[0])
-          // console.log(cx)
-          return cx
-        })
-        .attr('cy', d => {
-          // console.log(d)
-          // console.log(y)
-          let cy = y(d[1])
-          // console.log(cy)
-          return cy
-        })
+        .attr('d', () => line(data))
     }
-
-    // const valueline = `
-    //       M${x(data[0][0])} ${y(data[0][1])}
-    //       ${data
-    //         .slice(1)
-    //         .map(d => {
-    //           return `L${x(d[0])} ${y(d[1])}`
-    //         })
-    //         .join(' ')}
-    //     `
-    // svg.append("path")
-    //   .attr("class", "line")
-    //   .attr("d", valueline);
   }
 
   render() {
