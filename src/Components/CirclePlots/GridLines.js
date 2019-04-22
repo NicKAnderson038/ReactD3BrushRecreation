@@ -59,6 +59,10 @@ class GridLines extends PureComponent {
           .tickSize(-width)
           .tickFormat('')
       )
+
+    // let xGrid = d3.line().xMakeGridlines().tickSize(-height).tickFormat('')
+    // let yGrid = d3.line().yMakeGridlines().tickSize(-width).tickFormat('')
+    //     console.log(xGrid, yGrid)
   }
 
   render() {
@@ -72,3 +76,42 @@ class GridLines extends PureComponent {
 }
 
 export default GridLines
+
+/*
+class Line extends React.Component {
+
+    static propTypes = {...}
+
+    drawLine() {
+        let xScale = d3.scaleTime()
+            .domain(d3.extent(this.props.data, ({date}) => date));
+            .rangeRound([0, this.props.width]);
+
+        let yScale = d3.scaleLinear()
+            .domain(d3.extent(this.props.data, ({value}) => value))
+            .rangeRound([this.props.height, 0]);
+
+        let line = d3.line()
+            .x((d) => xScale(d.date))
+            .y((d) => yScale(d.value));
+
+        return (
+            <path
+                className="line"
+                d={line(this.props.data)}
+            />
+        );
+    }
+
+    render() {
+        <svg
+           className="line-container"
+           width={this.props.width}
+           height={this.props.height}
+        >
+           {this.drawLine()}
+        </svg>
+    }
+}
+
+*/

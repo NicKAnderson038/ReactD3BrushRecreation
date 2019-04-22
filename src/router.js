@@ -8,9 +8,7 @@ import {
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
-const GridLineMain = lazy(() =>
-  import('./Components/GridLineSample/GridD3Main')
-)
+const GridLineMain = lazy(() => import('./Components/CirclePlots/GridD3Main'))
 const Loading = () => <div>Loading...</div>
 
 const mainRouter = () => {
