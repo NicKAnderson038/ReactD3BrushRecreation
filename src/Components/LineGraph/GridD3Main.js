@@ -49,7 +49,6 @@ class GridLineMain extends PureComponent {
       .line()
       .x(d => x(d[0]))
       .y(d => y(d[1]))
-    logColor(line)
 
     data.forEach(source => {
       svg
