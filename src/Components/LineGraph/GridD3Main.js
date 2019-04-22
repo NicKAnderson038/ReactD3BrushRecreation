@@ -31,15 +31,15 @@ class GridLineMain extends PureComponent {
       width = svg.attr('width'),
       height = svg.attr('height')
 
-    const horizontal = [0, DOMAIN[0]],
-      vertical = [0, DOMAIN[1]],
+    const maxWidth = [0, DOMAIN[0]],
+      maxHeight = [0, DOMAIN[1]],
       x = d3
         .scaleLinear()
-        .domain(horizontal)
+        .domain(maxWidth)
         .range([0, width]),
       y = d3
         .scaleLinear()
-        .domain(vertical)
+        .domain(maxHeight)
         .range([height, 0])
 
     const xAxis = d3.axisTop(x).ticks(12),
@@ -86,11 +86,9 @@ class GridLineMain extends PureComponent {
       const s = d3.event.selection
       if (!s) {
         if (!idleTimeout) return (idleTimeout = setTimeout(idled, idleDelay))
-        x.domain(horizontal)
-        y.domain(vertical)
+        x.domain(maxWidth)
+        y.domain(maxHeight)
       } else {
-        // console.log(s)
-        // console.log(x)
         x.domain([s[0][0], s[1][0]].map(x.invert, x))
         y.domain([s[1][1], s[0][1]].map(y.invert, y))
         svg.select('.brush').call(brush.move, null)
