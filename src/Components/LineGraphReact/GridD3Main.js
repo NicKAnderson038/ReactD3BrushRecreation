@@ -24,6 +24,8 @@ class GridLineMain extends PureComponent {
   }
 
   drawSvg() {
+    // const oldCurveX = 'Displacement (in)'
+    // const oldCurveY = 'Load (lbf)'
     const DOMAIN_MAX = Object.values(data[data.length - 1]),
       svg = d3.select('svg'),
       width = svg.attr('width'),
@@ -117,13 +119,30 @@ class GridLineMain extends PureComponent {
 
   render() {
     const { header, userSelect, width, height } = this.props
+    // let MAX_X = Math.max(...data.map(d => d[0]))
+    // let MAX_Y = Math.max(...data.map(d => d[1]))
+
+    // let x = val => (val / MAX_X) * width
+    // let y = val => height - (val / MAX_Y) * height
+
+    // let d = `
+    //       M${x(data[0][0])} ${y(data[0][1])}
+    //       ${data
+    //         .slice(1)
+    //         .map(d => {
+    //           return `L${x(d[0])} ${y(d[1])}`
+    //         })
+    //         .join(' ')}
+    //
 
     return (
       <div style={userSelect}>
         <br />
         <h4>{header}</h4>
         <br />
-        <svg width={width} height={height} />
+        <svg width={width} height={height}>
+          {/* <path d={d} /> */}
+        </svg>
         <GridLines width={width} height={height} />
       </div>
     )

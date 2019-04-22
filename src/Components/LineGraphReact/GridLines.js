@@ -44,10 +44,19 @@ class GridLines extends PureComponent {
           .tickSize(-width)
           .tickFormat('')
       )
+
+    // let xGrid = d3.line().xMakeGridlines().tickSize(-height).tickFormat('')
+    // let yGrid = d3.line().yMakeGridlines().tickSize(-width).tickFormat('')
+    //     console.log(xGrid, yGrid)
   }
 
   render() {
-    return <div>{this.d3Render()}</div>
+    return (
+      // <g ref={this.gRef}>
+      //   {/* <Line /> */}
+      // </g>
+      <div>{this.d3Render()}</div>
+    )
   }
 }
 

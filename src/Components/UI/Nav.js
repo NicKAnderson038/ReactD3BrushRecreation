@@ -45,17 +45,22 @@ const nav = () => {
     <div style={header}>
       <Button>
         <Link to="/" style={link}>
-          Original
+          Circle Plots
         </Link>
       </Button>
       <Button>
         <Link to="/cicle-plots" style={link}>
-          Cirlce Plots
+          Cirlce Plots 2
         </Link>
       </Button>
       <Button>
         <Link to="/line-graph" style={link}>
           Line Graph
+        </Link>
+      </Button>
+      <Button>
+        <Link to="/line-graph-react" style={link}>
+          Line Graph 2
         </Link>
       </Button>
     </div>
