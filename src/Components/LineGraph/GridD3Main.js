@@ -38,8 +38,8 @@ class GridLineMain extends PureComponent {
       height = svg.attr('height')
 
     const k = height / width,
-      x0 = [0, 1],
-      y0 = [0, 1000],
+      x0 = [0, 10],
+      y0 = [0, 10000],
       x = d3
         .scaleLinear()
         .domain(x0)
