@@ -119,7 +119,6 @@ class GridLineMain extends PureComponent {
 
   render() {
     const { header, userSelect, width, height } = this.props
-
     // let MAX_X = Math.max(...data.map(d => d[0]))
     // let MAX_Y = Math.max(...data.map(d => d[1]))
 
@@ -134,7 +133,7 @@ class GridLineMain extends PureComponent {
     //           return `L${x(d[0])} ${y(d[1])}`
     //         })
     //         .join(' ')}
-    //     `
+    //
 
     return (
       <div style={userSelect}>
