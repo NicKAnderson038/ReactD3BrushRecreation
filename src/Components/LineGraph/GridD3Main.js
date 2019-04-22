@@ -55,7 +55,7 @@ class GridLineMain extends PureComponent {
       .y(d => y(d[1]))
       .curve(d3.curveCatmullRom.alpha(0.5))
 
-    d3.select('svg')
+    svg
       .append('path')
       .attr('d', () => line(data))
       .attr('transform', 'translate(0,0)')
