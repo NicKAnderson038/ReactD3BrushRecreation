@@ -49,7 +49,7 @@ class GridLineMain extends PureComponent {
       idleTimeout,
       idleDelay = 350
 
-    let line = d3
+    const line = d3
       .line()
       .x(d => x(d[0]))
       .y(d => y(d[1]))
