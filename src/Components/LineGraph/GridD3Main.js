@@ -93,8 +93,7 @@ class GridLineMain extends PureComponent {
         // console.log(x)
         x.domain([s[0][0], s[1][0]].map(x.invert, x))
         y.domain([s[1][1], s[0][1]].map(y.invert, y))
-        const res = svg.select('.brush').call(brush.move, null)
-        console.log(res)
+        svg.select('.brush').call(brush.move, null)
       }
       zoom()
     }
