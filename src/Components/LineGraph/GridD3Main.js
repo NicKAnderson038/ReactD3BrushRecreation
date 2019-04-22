@@ -26,8 +26,8 @@ class GridLineMain extends PureComponent {
   drawSvg() {
     // const oldCurveX = 'Displacement (in)'
     // const oldCurveY = 'Load (lbf)'
-    const DOMAIN_MAX = Object.values(data[data.length - 1])
-    const svg = d3.select('svg'),
+    const DOMAIN_MAX = Object.values(data[data.length - 1]),
+      svg = d3.select('svg'),
       width = svg.attr('width'),
       height = svg.attr('height')
 
