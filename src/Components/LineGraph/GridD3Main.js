@@ -30,7 +30,7 @@ class GridLineMain extends PureComponent {
       svg = d3.select('svg'),
       width = svg.attr('width'),
       height = svg.attr('height')
-
+    logColor(width, height)
     const maxWidth = [0, DOMAIN_MAX[0]],
       maxHeight = [0, DOMAIN_MAX[1]],
       x = d3
