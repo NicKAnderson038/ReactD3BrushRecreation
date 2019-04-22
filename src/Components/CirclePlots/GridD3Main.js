@@ -122,7 +122,6 @@ class GridLineMain extends PureComponent {
         .select('.axis--y')
         .transition(t)
         .call(yAxis)
-      const circle = svg.selectAll('circle')
       // console.log('circle: ', circle)
       svg
         .selectAll('circle')
