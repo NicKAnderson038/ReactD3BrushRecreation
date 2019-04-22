@@ -11,18 +11,18 @@ class GridLineMain extends PureComponent {
   // }
 
   componentDidMount() {
-    console.log(`%c componentDidMount 😎`, logColor)
+    logColor('componentDidMount 😎')
     this.drawSvg()
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(`%c getDerivedStateFromProps: 😎`, logColor)
+    logColor('getDerivedStateFromProps: 😎')
     console.log(props)
     console.log(state)
   }
 
   componentDidUpdate() {
-    console.log(`%c componentDidUpdate 😎`, logColor)
+    logColor('componentDidUpdate 😎')
     this.drawSvg()
   }
 

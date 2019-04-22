@@ -7,50 +7,36 @@ import GridLines from './GridLines'
 
 class GridLineMain extends PureComponent {
   componentDidMount() {
-    console.log(`%c componentDidMount 😎`, logColor)
+    logColor('componentDidMount 😎')
     this.drawSvg()
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(`%c getDerivedStateFromProps: 😎`, logColor)
+    logColor('getDerivedStateFromProps: 😎')
     console.log(props)
     console.log(state)
   }
 
   componentDidUpdate() {
-    console.log(`%c componentDidUpdate 😎`, logColor)
+    logColor('componentDidUpdate 😎')
     this.drawSvg()
   }
 
   drawSvg() {
-    const random = d3.randomNormal(0, 0.2),
-      sqrt3 = Math.sqrt(3),
-      points0 = d3.range(300).map(function() {
-        return [random() + sqrt3, random() + 1, 0]
-      }),
-      points1 = d3.range(300).map(function() {
-        return [random() - sqrt3, random() + 1, 1]
-      }),
-      points2 = d3.range(300).map(function() {
-        return [random(), random() - 1, 2]
-      }),
-      points = d3.merge([points0, points1, points2])
     const svg = d3.select('svg'),
-      width = +svg.attr('width'),
-      height = +svg.attr('height')
+      width = svg.attr('width'),
+      height = svg.attr('height')
 
     const k = height / width,
-      x0 = [-4.5, 4.5],
-      y0 = [-4.5 * k, 4.5 * k],
-      x = d3
-        .scaleLinear()
-        .domain(x0)
-        .range([0, width]),
-      y = d3
-        .scaleLinear()
-        .domain(y0)
-        .range([height, 0]),
-      z = d3.scaleOrdinal(d3.schemeCategory10)
+      x0 = [0, 1000],
+      y0 = [0, 1000],
+      x = d3.scaleLinear().rangeRound([0, width]),
+      // .domain(x0)
+      // .range([0, width]),
+      y = d3.scaleLinear().rangeRound([height, 0])
+    // .domain(y0)
+    // .range([height, 0]),
+    // z = d3.scaleOrdinal(d3.schemeCategory10)
 
     const xAxis = d3.axisTop(x).ticks(12),
       yAxis = d3.axisRight(y).ticks((12 * height) / width)
@@ -59,15 +45,35 @@ class GridLineMain extends PureComponent {
       idleTimeout,
       idleDelay = 350
 
-    svg
-      .selectAll('circle')
-      .data(points)
-      .enter()
-      .append('circle')
-      .attr('cx', d => x(d[0]))
-      .attr('cy', d => y(d[1]))
-      .attr('r', 2.5)
-      .attr('fill', d => z(d[2]))
+    const line = d3
+      .line()
+      .x(d => x(d[0]))
+      .y(d => y(d[1]))
+    logColor(line)
+
+    data.forEach(source => {
+      svg
+        .append('path')
+        .data([source.data])
+        .enter()
+        .attr('stroke-linejoin', 'round')
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-width', 2)
+        .attr('d', line)
+      // .attr('cx', d => x(d[0]))
+      // .attr('cy', d => y(d[1]))
+      // .attr('fill', d => z(d[2]))
+    })
+
+    // svg
+    //   .selectAll('circle')
+    //   .data(points)
+    //   .enter()
+    //   .append('circle')
+    //   .attr('cx', d => x(d[0]))
+    //   .attr('cy', d => y(d[1]))
+    //   .attr('r', 2.5)
+    //   .attr('fill', d => z(d[2]))
 
     svg
       .append('g')
