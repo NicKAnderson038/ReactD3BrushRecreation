@@ -45,12 +45,12 @@ const nav = () => {
     <div style={header}>
       <Button>
         <Link to="/" style={link}>
-          Original D3
+          Original
         </Link>
       </Button>
       <Button>
-        <Link to="/grid-components" style={link}>
-          Grid Components
+        <Link to="/cicle-plots" style={link}>
+          Cirlce Plots
         </Link>
       </Button>
     </div>

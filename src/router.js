@@ -23,7 +23,7 @@ const mainRouter = () => {
             //component={OrginialD3}
             render={props => (
               <OrginialD3
-                header={'Original D3'}
+                header={'Original D3 example integrated with React.'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
@@ -32,10 +32,10 @@ const mainRouter = () => {
             )}
           />
           <Route
-            path="/grid-components"
+            path="/cicle-plots"
             render={props => (
               <GridLineMain
-                header={'Grid Components'}
+                header={'Circle Plots with Grid Components.'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
