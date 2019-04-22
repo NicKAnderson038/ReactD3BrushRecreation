@@ -1,15 +1,11 @@
 import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
+import { data } from './LineData'
 import { logColor } from '../UI/ConsoleLogStyle'
 import GridLines from './GridLines'
 
 class GridLineMain extends PureComponent {
-  constructor() {
-    super()
-    this.gRef = React.createRef()
-  }
-
   componentDidMount() {
     console.log(`%c componentDidMount 😎`, logColor)
     this.drawSvg()
@@ -68,16 +64,10 @@ class GridLineMain extends PureComponent {
       .data(points)
       .enter()
       .append('circle')
-      .attr('cx', function(d) {
-        return x(d[0])
-      })
-      .attr('cy', function(d) {
-        return y(d[1])
-      })
+      .attr('cx', d => x(d[0]))
+      .attr('cy', d => y(d[1]))
       .attr('r', 2.5)
-      .attr('fill', function(d) {
-        return z(d[2])
-      })
+      .attr('fill', d => z(d[2]))
 
     svg
       .append('g')
