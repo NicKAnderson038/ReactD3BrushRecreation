@@ -53,6 +53,11 @@ const nav = () => {
           Cirlce Plots
         </Link>
       </Button>
+      <Button>
+        <Link to="/line-graph" style={link}>
+          Line Graph
+        </Link>
+      </Button>
     </div>
   )
 }
