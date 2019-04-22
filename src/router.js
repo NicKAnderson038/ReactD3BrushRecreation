@@ -48,7 +48,9 @@ const mainRouter = () => {
             path="/line-graph"
             render={props => (
               <GridLineMain2
-                header={'Line Graph with Grid Components.'}
+                header={
+                  'Line Graph with Grid Components and Chassis Tuner Data sample.'
+                }
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
