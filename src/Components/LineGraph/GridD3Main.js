@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
 import { data } from './LineData'
+
 import { logColor } from '../UI/ConsoleLogStyle'
 import GridLines from './GridLines'
 
@@ -23,20 +24,32 @@ class GridLineMain extends PureComponent {
   }
 
   drawSvg() {
+    const newData = data.map(d => {
+      return { x: d[0], y: d[1] }
+    })
+    let MAX_X = Math.max(...newData.map(d => d.x))
+    let MAX_Y = Math.max(...newData.map(d => d.y))
+
+    let x1 = val => (val / MAX_X) * width
+    let y1 = val => height - (val / MAX_Y) * height
+
     const svg = d3.select('svg'),
       width = svg.attr('width'),
       height = svg.attr('height')
 
     const k = height / width,
-      x0 = [0, 1000],
+      x0 = [0, 1],
       y0 = [0, 1000],
-      x = d3.scaleLinear().rangeRound([0, width]),
-      // .domain(x0)
-      // .range([0, width]),
-      y = d3.scaleLinear().rangeRound([height, 0])
-    // .domain(y0)
-    // .range([height, 0]),
-    // z = d3.scaleOrdinal(d3.schemeCategory10)
+      x = d3
+        .scaleLinear()
+        .domain(x0)
+        .range([0, width]),
+      // .rangeRound([0, x1]),
+      y = d3
+        .scaleLinear()
+        .domain(y0)
+        .range([height, 0])
+    // .rangeRound([y1, 0])
 
     const xAxis = d3.axisTop(x).ticks(12),
       yAxis = d3.axisRight(y).ticks((12 * height) / width)
@@ -45,34 +58,19 @@ class GridLineMain extends PureComponent {
       idleTimeout,
       idleDelay = 350
 
-    const line = d3
+    let line = d3
       .line()
       .x(d => x(d[0]))
       .y(d => y(d[1]))
+      .curve(d3.curveCatmullRom.alpha(0.5))
 
-    data.forEach(source => {
-      svg
-        .append('path')
-        .data([source.data])
-        .enter()
-        .attr('stroke-linejoin', 'round')
-        .attr('stroke-linecap', 'round')
-        .attr('stroke-width', 2)
-        .attr('d', line)
-      // .attr('cx', d => x(d[0]))
-      // .attr('cy', d => y(d[1]))
-      // .attr('fill', d => z(d[2]))
-    })
-
-    // svg
-    //   .selectAll('circle')
-    //   .data(points)
-    //   .enter()
-    //   .append('circle')
-    //   .attr('cx', d => x(d[0]))
-    //   .attr('cy', d => y(d[1]))
-    //   .attr('r', 2.5)
-    //   .attr('fill', d => z(d[2]))
+    d3.select('svg')
+      .append('path')
+      .attr('d', () => line(data))
+      .attr('transform', 'translate(0,0)')
+      .style('stroke-width', 2)
+      .style('stroke', 'steelblue')
+      .style('fill', 'none')
 
     svg
       .append('g')
@@ -104,7 +102,8 @@ class GridLineMain extends PureComponent {
         // console.log(x)
         x.domain([s[0][0], s[1][0]].map(x.invert, x))
         y.domain([s[1][1], s[0][1]].map(y.invert, y))
-        svg.select('.brush').call(brush.move, null)
+        const res = svg.select('.brush').call(brush.move, null)
+        console.log(res)
       }
       zoom()
     }
@@ -125,7 +124,7 @@ class GridLineMain extends PureComponent {
         .call(yAxis)
       // console.log('circle: ', circle)
       svg
-        .selectAll('circle')
+        .selectAll('path')
         .transition(t)
         .attr('cx', d => {
           // console.log(d)
@@ -142,16 +141,48 @@ class GridLineMain extends PureComponent {
           return cy
         })
     }
+
+    // const valueline = `
+    //       M${x(data[0][0])} ${y(data[0][1])}
+    //       ${data
+    //         .slice(1)
+    //         .map(d => {
+    //           return `L${x(d[0])} ${y(d[1])}`
+    //         })
+    //         .join(' ')}
+    //     `
+    // svg.append("path")
+    //   .attr("class", "line")
+    //   .attr("d", valueline);
   }
 
   render() {
     const { header, userSelect, width, height } = this.props
+
+    // let MAX_X = Math.max(...data.map(d => d[0]))
+    // let MAX_Y = Math.max(...data.map(d => d[1]))
+
+    // let x = val => (val / MAX_X) * width
+    // let y = val => height - (val / MAX_Y) * height
+
+    // let d = `
+    //       M${x(data[0][0])} ${y(data[0][1])}
+    //       ${data
+    //         .slice(1)
+    //         .map(d => {
+    //           return `L${x(d[0])} ${y(d[1])}`
+    //         })
+    //         .join(' ')}
+    //     `
+
     return (
       <div style={userSelect}>
         <br />
         <h4>{header}</h4>
         <br />
-        <svg width={width} height={height} />
+        <svg width={width} height={height}>
+          {/* <path d={d} /> */}
+        </svg>
         <GridLines width={width} height={height} />
       </div>
     )
