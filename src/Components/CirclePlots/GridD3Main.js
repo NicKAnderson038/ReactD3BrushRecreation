@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
-import { logColor } from '../UI/ConsoleLogStyle'
+import { logColor } from '../../Helpers/consoleLogStyle'
 import GridLines from './GridLines'
 
 class GridLineMain extends PureComponent {

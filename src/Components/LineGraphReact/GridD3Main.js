@@ -3,7 +3,7 @@ import * as d3 from 'd3'
 
 import { data } from './LineData'
 
-import { logColor } from '../UI/ConsoleLogStyle'
+import { logColor } from '../../Helpers/consoleLogStyle'
 import GridLines from './GridLines'
 
 class GridLineMain extends PureComponent {

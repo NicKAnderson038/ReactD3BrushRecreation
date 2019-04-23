@@ -1,7 +1,18 @@
 import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
+import { logColor } from '../UI/ConsoleLogStyle'
 
 class GridLines extends PureComponent {
+  state = {
+    x: d3
+      .scaleLinear()
+      .domain([0, 1])
+      .range([0, this.props.width]),
+    y: d3
+      .scaleLinear()
+      .domain([0, 1])
+      .range([this.props.height, 0])
+  }
   componentDidMount() {
     this.d3Render()
   }
@@ -51,11 +62,21 @@ class GridLines extends PureComponent {
   }
 
   render() {
+    const { width, height } = this.props
+    logColor(width, height)
     return (
       // <g ref={this.gRef}>
       //   {/* <Line /> */}
       // </g>
-      <div>{this.d3Render()}</div>
+      <svg className="container">
+        <g
+          className="grid"
+          style={{ transform: `translate(0,${height})` }}
+          ticks={12}
+          // ref={node => d3.select(node).call(d3.axisBottom(this.state.x))}
+        />
+      </svg>
+      // <div>{this.d3Render()}</div>
     )
   }
 }
