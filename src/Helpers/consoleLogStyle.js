@@ -1,5 +1,5 @@
 export const logColor = (...value) => {
-  let color
+  let color = 'pink'
   switch (Math.floor(Math.random() * 4)) {
     case 0:
       color = 'pink'
@@ -14,7 +14,6 @@ export const logColor = (...value) => {
       color = 'turquoise'
       break
     default:
-      color = 'pink'
       break
   }
 
