@@ -23,7 +23,7 @@ export const logColor = (...value) => {
     console.log(JSON.stringify(value, null, 2))
   } else {
     console.log(
-      `%c ${value}`,
+      `%c ${value.length === 0 ? (value = '😎 empyt [Array]') : value}`,
       `color:${color};
       font-size:20px;font-weight:bold;
       font-family:Baskerville;

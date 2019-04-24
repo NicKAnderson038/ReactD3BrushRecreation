@@ -10,6 +10,7 @@ class GridLineMain extends PureComponent {
   componentDidMount() {
     logColor('componentDidMount 😎')
     this.drawSvg()
+    logColor()
   }
 
   static getDerivedStateFromProps(props, state) {
