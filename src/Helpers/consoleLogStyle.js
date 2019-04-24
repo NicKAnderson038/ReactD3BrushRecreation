@@ -18,12 +18,17 @@ export const logColor = (...value) => {
       break
   }
 
-  if (Array.isArray(value) && value.length > 0) {
+  const arrayCheck = value => value.some(value => typeof value === 'object')
+
+  if (Array.isArray(value) && arrayCheck(value)) {
     console.log(JSON.stringify(value, null, 2))
   } else {
     console.log(
       `%c ${value}`,
-      `color:${color};font-size:20px;font-weight:bold;font-family:Baskerville;background: #222;padding: 3px 20px;`
+      `color:${color};
+      font-size:20px;font-weight:bold;
+      font-family:Baskerville;
+      background: #222;padding: 3px 20px;`
     )
   }
 }
