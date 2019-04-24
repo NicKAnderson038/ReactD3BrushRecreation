@@ -8,19 +8,18 @@ import GridLines from './GridLines'
 
 class GridLineMain extends PureComponent {
   componentDidMount() {
-    logColor('componentDidMount 😎')
+    logColor('componentDidMount')
     this.drawSvg()
-    logColor()
   }
 
   static getDerivedStateFromProps(props, state) {
-    logColor('getDerivedStateFromProps: 😎')
+    logColor('getDerivedStateFromProps')
     console.log(props)
     console.log(state)
   }
 
   componentDidUpdate() {
-    logColor('componentDidUpdate 😎')
+    logColor('componentDidUpdate')
     this.drawSvg()
   }
 
