@@ -63,6 +63,11 @@ const nav = () => {
           Line Graph 2
         </Link>
       </Button>
+      <Button>
+        <Link to="/line-graph-hook" style={link}>
+          Line Graph 3
+        </Link>
+      </Button>
     </div>
   )
 }

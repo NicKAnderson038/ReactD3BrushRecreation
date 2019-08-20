@@ -6,6 +6,7 @@ import {
   withRouter
 } from 'react-router-dom'
 import GridLineMain3 from './Components/LineGraphReact/GridD3Main'
+import GridLineMain4 from './Components/LineGraphHook/GridD3Main'
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
@@ -69,6 +70,20 @@ const mainRouter = () => {
               <GridLineMain3
                 header={
                   'Line Graph with Grid React Components, Chassis Tuner Data sample more react features.'
+                }
+                userSelect={{ userSelect: 'none' }}
+                width={960}
+                height={600}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            path="/line-graph-hook"
+            render={props => (
+              <GridLineMain4
+                header={
+                  'Line Graph with Grid React Hook Components. Focus on using hooks.'
                 }
                 userSelect={{ userSelect: 'none' }}
                 width={960}
