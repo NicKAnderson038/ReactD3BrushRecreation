@@ -5,16 +5,15 @@ import {
   Switch,
   withRouter
 } from 'react-router-dom'
-import GridLineMain3 from './Components/LineGraphReact/GridD3Main'
 import GridLineMain4 from './Components/LineGraphHook/GridD3Main'
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
 const GridLineMain = lazy(() => import('./Components/CirclePlots/GridD3Main'))
 const GridLineMain2 = lazy(() => import('./Components/LineGraph/GridD3Main'))
-// const GridLineMain3 = lazy(() =>
-//   import('./Components/LineGraphReact/GridD3Main')
-// )
+const GridLineMain3 = lazy(() =>
+  import('./Components/LineGraphReact/GridD3Main')
+)
 
 const Loading = () => <div>Loading...</div>
 
@@ -30,7 +29,7 @@ const mainRouter = () => {
             //component={OrginialD3}
             render={props => (
               <OrginialD3
-                header={'Original D3 example integrated into React.'}
+                header={'Original D3 example integrated into React'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
@@ -42,7 +41,7 @@ const mainRouter = () => {
             path="/cicle-plots"
             render={props => (
               <GridLineMain
-                header={'Circle Plots with Grid as React Component.'}
+                header={'Circle Plots with Grid as React Component'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
@@ -54,9 +53,7 @@ const mainRouter = () => {
             path="/line-graph"
             render={props => (
               <GridLineMain2
-                header={
-                  'Line Graph with Grid React Components and Chassis Tuner Data sample.'
-                }
+                header={'React Components'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
@@ -68,9 +65,7 @@ const mainRouter = () => {
             path="/line-graph-react"
             render={props => (
               <GridLineMain3
-                header={
-                  'Line Graph with Grid React Components, Chassis Tuner Data sample more react features.'
-                }
+                header={'React Components with additional Jsx features'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
@@ -82,9 +77,7 @@ const mainRouter = () => {
             path="/line-graph-hook"
             render={props => (
               <GridLineMain4
-                header={
-                  'Line Graph with Grid React Hook Components. Focus on using hooks.'
-                }
+                header={'React Hook Components'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
