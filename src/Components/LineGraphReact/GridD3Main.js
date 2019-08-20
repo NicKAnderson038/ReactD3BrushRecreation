@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
-import { data } from './LineData'
+import { data } from '../../data/LineData'
 
 import { logColor } from '../../Helpers/consoleLogStyle'
 import GridLines from './GridLines'
