@@ -5,14 +5,16 @@ import {
   Switch,
   withRouter
 } from 'react-router-dom'
+import GridLineMain3 from './Components/LineGraphReact/GridD3Main'
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
 const GridLineMain = lazy(() => import('./Components/CirclePlots/GridD3Main'))
 const GridLineMain2 = lazy(() => import('./Components/LineGraph/GridD3Main'))
-const GridLineMain3 = lazy(() =>
-  import('./Components/LineGraphReact/GridD3Main')
-)
+// const GridLineMain3 = lazy(() =>
+//   import('./Components/LineGraphReact/GridD3Main')
+// )
+
 const Loading = () => <div>Loading...</div>
 
 const mainRouter = () => {

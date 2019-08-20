@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import * as d3 from 'd3'
 
 import { data } from './LineData'
@@ -6,7 +6,7 @@ import { data } from './LineData'
 import { logColor } from '../../Helpers/consoleLogStyle'
 import GridLines from './GridLines'
 
-class GridLineMain extends PureComponent {
+class GridLineMain extends Component {
   componentDidMount() {
     logColor('componentDidMount')
     this.drawSvg()
@@ -24,8 +24,6 @@ class GridLineMain extends PureComponent {
   }
 
   drawSvg() {
-    // const oldCurveX = 'Displacement (in)'
-    // const oldCurveY = 'Load (lbf)'
     const DOMAIN_MAX = Object.values(data[data.length - 1]),
       svg = d3.select('svg'),
       width = svg.attr('width'),
@@ -54,7 +52,7 @@ class GridLineMain extends PureComponent {
       .x(d => x(d[0]))
       .y(d => y(d[1]))
       .curve(d3.curveCatmullRom.alpha(0.5))
-
+    logColor(data)
     svg
       .append('path')
       .attr('d', () => line(data))
@@ -119,14 +117,13 @@ class GridLineMain extends PureComponent {
 
   render() {
     const { header, userSelect, width, height } = this.props
+
     return (
       <div style={userSelect}>
         <br />
         <h4>{header}</h4>
         <br />
-        <svg width={width} height={height}>
-          {/* <path d={d} /> */}
-        </svg>
+        <svg width={width} height={height} />
         <GridLines width={width} height={height} />
       </div>
     )

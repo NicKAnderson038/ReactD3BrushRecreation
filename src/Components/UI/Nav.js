@@ -58,11 +58,11 @@ const nav = () => {
           Line Graph
         </Link>
       </Button>
-      {/* <Button>
+      <Button>
         <Link to="/line-graph-react" style={link}>
           Line Graph 2
         </Link>
-      </Button> */}
+      </Button>
     </div>
   )
 }
