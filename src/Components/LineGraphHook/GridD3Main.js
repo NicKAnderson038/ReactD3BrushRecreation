@@ -106,7 +106,7 @@ const GridLineMain = ({ header, userSelect, width, height }) => {
       <h4>{header}</h4>
       <br />
       <svg width={width} height={height} />
-      <GridLines width={width} height={height} />
+      {/* <GridLines width={width} height={height} /> */}
     </div>
   )
 }
