@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import * as d3 from 'd3'
 
 import { data } from '../../data/LineData'
@@ -7,8 +7,6 @@ import { logColor } from '../../Helpers/consoleLogStyle'
 import GridLines from './GridLines'
 
 const GridLineMain = ({ header, userSelect, width, height }) => {
-  // const [data, setData] = useState(d)
-
   useEffect(() => {
     const DOMAIN_MAX = Object.values(data[data.length - 1]),
       svg = d3.select('svg'),
