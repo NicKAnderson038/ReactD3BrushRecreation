@@ -4,7 +4,7 @@ import * as d3 from 'd3'
 import { data } from '../../data/LineData'
 
 import { logColor } from '../../Helpers/consoleLogStyle'
-import GridLines from './GridLines'
+// import GridLines from './GridLines'
 
 const GridLineMain = ({ header, userSelect, width, height }) => {
   useEffect(() => {
