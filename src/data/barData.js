@@ -1,58 +1,30 @@
 export const data = [
   {
-    date: '2013-01',
-    value: 53
+    name: 'Apples',
+    value: 20
   },
   {
-    date: '2013-02',
-    value: 165
+    name: 'Bananas',
+    value: 12
   },
   {
-    date: '2013-03',
-    value: 269
+    name: 'Grapes',
+    value: 19
   },
   {
-    date: '2013-04',
-    value: 344
+    name: 'Lemons',
+    value: 5
   },
   {
-    date: '2013-05',
-    value: 376
+    name: 'Limes',
+    value: 16
   },
   {
-    date: '2013-06',
-    value: 410
+    name: 'Oranges',
+    value: 26
   },
   {
-    date: '2013-07',
-    value: 421
-  },
-  {
-    date: '2013-08',
-    value: 405
-  },
-  {
-    date: '2013-09',
-    value: 376
-  },
-  {
-    date: '2013-10',
-    value: 359
-  },
-  {
-    date: '2013-11',
-    value: 392
-  },
-  {
-    date: '2013-12',
-    value: 433
-  },
-  {
-    date: '2014-01',
-    value: 455
-  },
-  {
-    date: '2014-02',
-    value: 478
+    name: 'Pears',
+    value: 30
   }
 ]

@@ -10,16 +10,19 @@
 }
 
 .bar {
-  fill: steelblue;
+  fill: #5f89ad;
 }
 
-.axis {
-  font: 10px sans-serif;
-}
+/* .axis {
+  font-size: 13px;
+} */
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+  display: none;
+}
+
+.label {
+  font-size: 13px;
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 
-import barChart from './barChart'
+import barD3Chart from './barD3Chart'
 import { data } from '../../data/barData'
 import D3Wrapper from '../../Helpers/D3Wrapper'
 import Jsx from './Jsx'
 
 import { logColor } from '../../Helpers/consoleLogStyle'
-
+logColor(data)
 const Index = ({ width, height }) => {
   return (
     <React.Fragment>
@@ -14,7 +14,7 @@ const Index = ({ width, height }) => {
         x={0}
         y={0}
         jsx={Jsx}
-        render={() => barChart(data, width, height)}
+        render={() => barD3Chart(data, width, height)}
       />
     </React.Fragment>
   )

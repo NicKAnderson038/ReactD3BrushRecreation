@@ -14,14 +14,10 @@ const Jsx = () => {
       <h4>Bar Chart</h4>
       <br />
       <svg id="bar-chart-1" width={960} height={500}>
-        <g transform={`translate(${margin.left}, ${margin.top})`}>
+        {/* <g transform={`translate(${margin.left}, ${margin.top})`}>
           <g className="x axis" transform={`translate(${0}, ${height})`} />
           <g className="y axis" />
-        </g>
-        {/* <path style={pathStyles} transform={`translate(${0} ${0})`} />
-        <g className="axis axis--x" />
-        <g className="axis axis--y" transform={`translate(${10} ${0})`} />
-        <g className="brush" /> */}
+        </g> */}
       </svg>
     </React.Fragment>
   )
