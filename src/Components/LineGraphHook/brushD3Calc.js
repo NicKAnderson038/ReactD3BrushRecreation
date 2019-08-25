@@ -12,7 +12,7 @@ const brushD3Calc = (data, width, height) => {
   const x = d3
     .scaleLinear()
     .domain(maxWidth)
-    .range([0, w])
+    .range([0, width])
   const y = d3
     .scaleLinear()
     .domain(maxHeight)
