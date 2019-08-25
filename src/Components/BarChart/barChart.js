@@ -1,6 +1,9 @@
 import * as d3 from 'd3'
 
-const barChart = ({ w, h }) => {
+import { logColor } from '../../Helpers/consoleLogStyle'
+
+const barChart = (w, h) => {
+  logColor(w, h)
   // set the dimensions and margins of the graph
   const margin = { top: 20, right: 20, bottom: 30, left: 40 },
     width = w - margin.left - margin.right,
@@ -25,9 +28,9 @@ const barChart = ({ w, h }) => {
     .attr('height', height + margin.top + margin.bottom)
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-
+  console.log(svg)
   // get the data
-  d3.csv('../../data/sales.csv', function(error, data) {
+  d3.csv('sales.csv', function(error, data) {
     if (error) throw error
 
     // format the data
@@ -75,6 +78,7 @@ const barChart = ({ w, h }) => {
     // add the y Axis
     svg.append('g').call(d3.axisLeft(y))
   })
+  return svg
 }
 
 export default barChart
