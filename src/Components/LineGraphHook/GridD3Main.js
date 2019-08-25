@@ -1,3 +1,6 @@
+// Using hooks directly on d3 calc logic.
+
+/*
 import React, { useEffect } from 'react'
 import * as d3 from 'd3'
 
@@ -104,9 +107,9 @@ const GridLineMain = ({ header, userSelect, width, height }) => {
       <h4>{header}</h4>
       <br />
       <svg width={width} height={height} />
-      {/* <GridLines width={width} height={height} /> */}
     </div>
   )
 }
 
 export default GridLineMain
+*/

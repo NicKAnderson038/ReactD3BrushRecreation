@@ -5,7 +5,7 @@ import {
   Switch,
   withRouter
 } from 'react-router-dom'
-import GridLineMain4 from './Components/LineGraphHook/GridD3Main'
+import GridLineMain4 from './Components/LineGraphHook'
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
