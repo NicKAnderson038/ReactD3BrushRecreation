@@ -8,16 +8,15 @@ import Jsx from './Jsx'
 import { logColor } from '../../Helpers/consoleLogStyle'
 
 const Index = ({ width, height }) => {
-  logColor(width, height)
   return (
-    <div>
+    <React.Fragment>
       <D3Wrapper
         x={0}
         y={0}
         jsx={Jsx}
         render={() => brushD3Calc(data, width, height)}
       />
-    </div>
+    </React.Fragment>
   )
 }
 

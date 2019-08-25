@@ -11,8 +11,8 @@ class OriginalD3 extends PureComponent {
 
   static getDerivedStateFromProps(props, state) {
     logColor('getDerivedStateFromProps')
-    console.log(props)
-    console.log(state)
+    // console.log(props)
+    // console.log(state)
   }
 
   componentDidUpdate() {
