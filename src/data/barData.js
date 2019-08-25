@@ -1,58 +1,58 @@
 export const data = [
   {
-    salesperson: 'Bob',
-    sales: 33
+    date: '2013-01',
+    value: 53
   },
   {
-    salesperson: 'Robin',
-    sales: 12
+    date: '2013-02',
+    value: 165
   },
   {
-    salesperson: 'Anne',
-    sales: 41
+    date: '2013-03',
+    value: 269
   },
   {
-    salesperson: 'Mark',
-    sales: 16
+    date: '2013-04',
+    value: 344
   },
   {
-    salesperson: 'Joe',
-    sales: 59
+    date: '2013-05',
+    value: 376
   },
   {
-    salesperson: 'Eve',
-    sales: 38
+    date: '2013-06',
+    value: 410
   },
   {
-    salesperson: 'Karen',
-    sales: 21
+    date: '2013-07',
+    value: 421
   },
   {
-    salesperson: 'Kirsty',
-    sales: 25
+    date: '2013-08',
+    value: 405
   },
   {
-    salesperson: 'Chris',
-    sales: 30
+    date: '2013-09',
+    value: 376
   },
   {
-    salesperson: 'Lisa',
-    sales: 47
+    date: '2013-10',
+    value: 359
   },
   {
-    salesperson: 'Tom',
-    sales: 5
+    date: '2013-11',
+    value: 392
   },
   {
-    salesperson: 'Stacy',
-    sales: 20
+    date: '2013-12',
+    value: 433
   },
   {
-    salesperson: 'Charles',
-    sales: 13
+    date: '2014-01',
+    value: 455
   },
   {
-    salesperson: 'Mary',
-    sales: 29
+    date: '2014-02',
+    value: 478
   }
 ]
