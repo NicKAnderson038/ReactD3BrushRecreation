@@ -87,7 +87,7 @@ const mainRouter = () => {
             )}
           />
           <Route
-            path="bar-chart"
+            path="bar-chart-1"
             render={props => (
               <BarChart
                 header={'React Bar Chart'}

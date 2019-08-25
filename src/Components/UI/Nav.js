@@ -69,7 +69,7 @@ const nav = () => {
         </Link>
       </Button>
       <Button>
-        <Link to="/bar-chart" style={link}>
+        <Link to="/bar-chart-1" style={link}>
           Bar Chart
         </Link>
       </Button>
