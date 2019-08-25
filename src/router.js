@@ -5,8 +5,8 @@ import {
   Switch,
   withRouter
 } from 'react-router-dom'
-import GridLineMain4 from './Components/LineGraphHook'
-import BarChart from './Components/BarChart'
+// import GridLineMain4 from './Components/LineGraphHook'
+import BarIndex from './Components/BarChart/BarIndex'
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
@@ -15,6 +15,7 @@ const GridLineMain2 = lazy(() => import('./Components/LineGraph/GridD3Main'))
 const GridLineMain3 = lazy(() =>
   import('./Components/LineGraphReact/GridD3Main')
 )
+const GridLineMain4 = lazy(() => import('./Components/LineGraphHook'))
 
 const Loading = () => <div>Loading...</div>
 
@@ -89,7 +90,7 @@ const mainRouter = () => {
           <Route
             path="bar-chart-1"
             render={props => (
-              <BarChart
+              <BarIndex
                 header={'React Bar Chart'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}

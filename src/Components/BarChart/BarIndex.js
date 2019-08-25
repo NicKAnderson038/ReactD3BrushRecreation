@@ -6,8 +6,9 @@ import D3Wrapper from '../../Helpers/D3Wrapper'
 import Jsx from './Jsx'
 
 import { logColor } from '../../Helpers/consoleLogStyle'
-logColor(data)
-const Index = ({ width, height }) => {
+
+const BarIndex = ({ width, height }) => {
+  logColor('+++++???????++++++')
   return (
     <React.Fragment>
       <D3Wrapper
@@ -20,4 +21,4 @@ const Index = ({ width, height }) => {
   )
 }
 
-export default Index
+export default BarIndex
