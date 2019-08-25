@@ -6,6 +6,7 @@ import {
   withRouter
 } from 'react-router-dom'
 import GridLineMain4 from './Components/LineGraphHook'
+import BarChart from './Components/BarChart'
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
@@ -81,6 +82,18 @@ const mainRouter = () => {
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={600}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            path="bar-chart"
+            render={props => (
+              <BarChart
+                header={'React Bar Chart'}
+                userSelect={{ userSelect: 'none' }}
+                width={960}
+                height={500}
                 {...props}
               />
             )}

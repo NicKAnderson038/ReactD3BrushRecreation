@@ -68,6 +68,11 @@ const nav = () => {
           Line Graph 3
         </Link>
       </Button>
+      <Button>
+        <Link to="/bar-chart" style={link}>
+          Bar Chart
+        </Link>
+      </Button>
     </div>
   )
 }
