@@ -41,8 +41,10 @@ const barD3Chart = (data, w, h) => {
     .selectAll('.bar')
     .data(data)
     .enter()
+    // .select('.react-start')
     .append('rect')
     .attr('class', 'bar')
+    .attr('transform', 'translate(20,0)')
     .attr('x', function(d) {
       return x(d.salesperson)
     })
@@ -55,10 +57,11 @@ const barD3Chart = (data, w, h) => {
     })
 
   // x Axis
-  svg.select('axis--x').call(d3.axisBottom(x))
+  logColor(x)
+  svg.select('.axis--x').call(d3.axisBottom(x))
 
   // y Axis
-  svg.select('axis--y').call(d3.axisLeft(y))
+  svg.select('.axis--y').call(d3.axisLeft(y))
 }
 
 export default barD3Chart
