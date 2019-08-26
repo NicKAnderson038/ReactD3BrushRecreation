@@ -9,14 +9,14 @@ import { logColor } from '../../Helpers/consoleLogStyle'
 
 const margin = { top: 20, right: 20, bottom: 30, left: 40 }
 
-const Jsx = height => {
+const Jsx = (width, height) => {
   const y = height - margin.top - margin.bottom
 
   return (
     <React.Fragment>
       <h4>Bar Chart</h4>
       <br />
-      <svg id="bar-chart-1">
+      <svg id="bar-chart-1" width={width} height={height}>
         <g transform={`translate(${margin.left} ${margin.top})`} />
         <g className="axis--x" transform={`translate(${20} ${y})`} />
         <g className="axis--y" transform={`translate(${20} ${0})`} />

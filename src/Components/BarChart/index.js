@@ -16,7 +16,7 @@ const Index = ({ width, height }) => {
         x={0}
         y={0}
         // jsx={Jsx}
-        jsx={() => Jsx(height)}
+        jsx={() => Jsx(width, height)}
         render={() => barD3Chart(data, width, height)}
       />
     </React.Fragment>
