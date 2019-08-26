@@ -8,7 +8,7 @@ import Jsx from './Jsx'
 import { logColor } from '../../Helpers/consoleLogStyle'
 
 const Index = ({ width, height }) => {
-  logColor('Bar')
+  logColor('Bar Chart')
   return (
     <React.Fragment>
       <D3Wrapper

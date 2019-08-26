@@ -24,37 +24,21 @@ const barD3Chart = (data, w, h) => {
     .attr('height', height + margin.top + margin.bottom)
 
   // Scale the range of the data in the domains
-  x.domain(
-    data.map(function(d) {
-      return d.salesperson
-    })
-  )
-  y.domain([
-    0,
-    d3.max(data, function(d) {
-      return d.sales
-    })
-  ])
+  x.domain(data.map(d => d.salesperson))
+  y.domain([0, d3.max(data, d => d.sales)])
 
   // append the rectangles for the bar chart
   svg
     .selectAll('.bar')
     .data(data)
     .enter()
-    // .select('.react-start')
     .append('rect')
     .attr('class', 'bar')
     .attr('transform', 'translate(20,0)')
-    .attr('x', function(d) {
-      return x(d.salesperson)
-    })
+    .attr('x', d => x(d.salesperson))
     .attr('width', x.bandwidth())
-    .attr('y', function(d) {
-      return y(d.sales)
-    })
-    .attr('height', function(d) {
-      return height - y(d.sales)
-    })
+    .attr('y', d => y(d.sales))
+    .attr('height', d => height - y(d.sales))
 
   // x Axis
   svg.select('.axis--x').call(d3.axisBottom(x))
