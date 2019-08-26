@@ -3,7 +3,7 @@ import * as d3 from 'd3'
 import { logColor } from '../../Helpers/consoleLogStyle'
 
 const barD3Chart = (data, w, h) => {
-  console.log(data)
+  logColor(data)
 
   // set the dimensions and margins of the graph
   const margin = { top: 20, right: 20, bottom: 30, left: 40 },
@@ -57,7 +57,6 @@ const barD3Chart = (data, w, h) => {
     })
 
   // x Axis
-  logColor(x)
   svg.select('.axis--x').call(d3.axisBottom(x))
 
   // y Axis
