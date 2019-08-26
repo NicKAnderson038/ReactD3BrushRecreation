@@ -8,6 +8,7 @@ import Jsx from './Jsx'
 import { logColor } from '../../Helpers/consoleLogStyle'
 
 const Index = ({ width, height }) => {
+  logColor('Hook')
   return (
     <React.Fragment>
       <D3Wrapper

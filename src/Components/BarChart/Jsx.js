@@ -13,12 +13,12 @@ const Jsx = () => {
     <React.Fragment>
       <h4>Bar Chart</h4>
       <br />
-      <div className="bar-chart-1">
+      <svg id="bar-chart-1">
         {/* <g transform={`translate(${margin.left}, ${margin.top})`}>
           <g className="x axis" transform={`translate(${0}, ${height})`} />
           <g className="y axis" />
         </g> */}
-      </div>
+      </svg>
     </React.Fragment>
   )
 }

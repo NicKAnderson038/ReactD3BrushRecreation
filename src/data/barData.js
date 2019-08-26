@@ -1,30 +1,58 @@
 export const data = [
   {
-    name: 'Apples',
-    value: 20
+    salesperson: 'Bob',
+    sales: 33
   },
   {
-    name: 'Bananas',
-    value: 12
+    salesperson: 'Robin',
+    sales: 12
   },
   {
-    name: 'Grapes',
-    value: 19
+    salesperson: 'Anne',
+    sales: 41
   },
   {
-    name: 'Lemons',
-    value: 5
+    salesperson: 'Mark',
+    sales: 16
   },
   {
-    name: 'Limes',
-    value: 16
+    salesperson: 'Joe',
+    sales: 59
   },
   {
-    name: 'Oranges',
-    value: 26
+    salesperson: 'Eve',
+    sales: 38
   },
   {
-    name: 'Pears',
-    value: 30
+    salesperson: 'Karen',
+    sales: 21
+  },
+  {
+    salesperson: 'Kirsty',
+    sales: 25
+  },
+  {
+    salesperson: 'Chris',
+    sales: 30
+  },
+  {
+    salesperson: 'Lisa',
+    sales: 47
+  },
+  {
+    salesperson: 'Tom',
+    sales: 5
+  },
+  {
+    salesperson: 'Stacy',
+    sales: 20
+  },
+  {
+    salesperson: 'Charles',
+    sales: 13
+  },
+  {
+    salesperson: 'Mary',
+    sales: 29
   }
 ]
