@@ -6,7 +6,7 @@ import {
   withRouter
 } from 'react-router-dom'
 // import GridLineMain4 from './Components/LineGraphHook'
-import BarIndex from './Components/BarChart/BarIndex'
+import BarIndex from './Components/BarChart'
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))

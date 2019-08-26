@@ -7,7 +7,7 @@ import Jsx from './Jsx'
 
 import { logColor } from '../../Helpers/consoleLogStyle'
 
-const BarIndex = ({ width, height }) => {
+const Index = ({ width, height }) => {
   logColor('Bar')
   return (
     <React.Fragment>
@@ -21,4 +21,4 @@ const BarIndex = ({ width, height }) => {
   )
 }
 
-export default BarIndex
+export default Index
