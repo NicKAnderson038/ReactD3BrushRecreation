@@ -3,12 +3,12 @@ import * as d3 from 'd3'
 import { logColor } from '../../Helpers/consoleLogStyle'
 
 const barD3Chart = (data, w, h) => {
-  // logColor(data)
-
   // set the dimensions and margins of the graph
   const margin = { top: 20, right: 20, bottom: 30, left: 40 },
     width = w - margin.left - margin.right,
     height = h - margin.top - margin.bottom
+
+  logColor(width, height)
 
   // set the ranges
   const x = d3
