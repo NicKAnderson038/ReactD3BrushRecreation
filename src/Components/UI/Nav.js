@@ -73,6 +73,11 @@ const nav = () => {
           Bar Chart
         </Link>
       </Button>
+      <Button>
+        <Link to="/recharts-line-graph" style={link}>
+          ReCharts Line Graph
+        </Link>
+      </Button>
     </div>
   )
 }

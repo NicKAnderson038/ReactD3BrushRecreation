@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 // import GridLineMain4 from './Components/LineGraphHook'
 import BarIndex from './Components/BarChart'
+import ReChartsLineGraph from './Components/Recharts/LineGraph'
 
 const Nav = lazy(() => import('./Components/UI/Nav'))
 const OrginialD3 = lazy(() => import('./Components/OrginalD3'))
@@ -92,6 +93,18 @@ const mainRouter = () => {
             render={props => (
               <BarIndex
                 header={'React Bar Chart'}
+                userSelect={{ userSelect: 'none' }}
+                width={960}
+                height={500}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            path="/recharts-line-graph"
+            render={props => (
+              <ReChartsLineGraph
+                header={'reCharts line Graph'}
                 userSelect={{ userSelect: 'none' }}
                 width={960}
                 height={500}
