@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Label,
   LineChart,
@@ -9,8 +9,9 @@ import {
   Tooltip,
   ReferenceArea
 } from 'recharts'
+import { logColor } from '../../../Helpers/consoleLogStyle'
 
-const data = [
+const d = [
   { name: 1, cost: 4.11, impression: 100 },
   { name: 2, cost: 2.39, impression: 120 },
   { name: 3, cost: 1.37, impression: 150 },
@@ -34,7 +35,7 @@ const data = [
 ]
 
 const getAxisYDomain = (from, to, ref, offset) => {
-  const refData = data.slice(from - 1, to)
+  const refData = d.slice(from - 1, to)
   let [bottom, top] = [refData[0][ref], refData[0][ref]]
   refData.forEach(d => {
     if (d[ref] > top) top = d[ref]
@@ -45,7 +46,7 @@ const getAxisYDomain = (from, to, ref, offset) => {
 }
 
 const initialState = {
-  data,
+  data: d,
   left: 'dataMin',
   right: 'dataMax',
   refAreaLeft: '',
@@ -57,15 +58,167 @@ const initialState = {
   animation: true
 }
 
+// const Index = () => {
+//   const [DATA, setData] = useState(initialState)
+
+//   logColor(DATA)
+//   const zoom = () => {
+//     // let { refAreaLeft, refAreaRight, data } = DATA
+//     console.log('ZOOM: ', DATA)
+//     if (refAreaLeft === refAreaRight || refAreaRight === '') {
+//       setData((DATA.refAreaLeft = ''))
+//       setData((DATA.refAreaRight = ''))
+//       return
+//     }
+
+//     // xAxis domain
+//     if (refAreaLeft > refAreaRight)
+//       [refAreaLeft, refAreaRight] = [refAreaRight, refAreaLeft]
+
+//     // yAxis domain
+//     const [bottom, top] = getAxisYDomain(refAreaLeft, refAreaRight, 'cost', 1)
+//     const [bottom2, top2] = getAxisYDomain(
+//       refAreaLeft,
+//       refAreaRight,
+//       'impression',
+//       50
+//     )
+
+//     setData((DATA.refAreaLeft = ''))
+//     setData((DATA.refAreaRight = ''))
+//     setData((DATA.data = data.slice()))
+//     setData((DATA.left = refAreaLeft))
+//     setData((DATA.right = refAreaRight))
+//     setData((DATA.bottom = bottom))
+//     setData((DATA.top = top))
+//     setData((DATA.bottom2 = bottom2))
+//     setData((DATA.top2 = top2))
+//     return
+//   }
+
+//   const zoomOut = () => {
+//     const { data } = DATA
+//     setData((DATA.data = data.slice()))
+//     setData((DATA.refAreaLeft = ''))
+//     setData((DATA.refAreaRight = ''))
+//     setData((DATA.left = 'dataMin'))
+//     setData((DATA.right = 'dataMax'))
+//     setData((DATA.top = 'dataMax+1'))
+//     setData((DATA.bottom = 'dataMin'))
+//     setData((DATA.top2 = 'dataMax+50'))
+//     setData((DATA.bottom = 'dataMin+50'))
+//     return
+//   }
+
+//   const mouseDown = e => {
+//     setData((DATA.refAreaLeft = e.activeLabel))
+//     setData((DATA.refAreaRight = e.activeLabel))
+//     return
+//   }
+
+//   const mouseMove = e => {
+//     if (refAreaLeft && refAreaRight) {
+//       return true
+//     }
+//     return e.isTooltipActive
+//   }
+
+//   let {
+//     data,
+//     barIndex,
+//     left,
+//     right,
+//     refAreaLeft,
+//     refAreaRight,
+//     top,
+//     bottom,
+//     top2,
+//     bottom2
+//   } = DATA
+
+//   console.log(DATA)
+//   return (
+//     <div className="highlight-bar-charts">
+//       <br />
+//       <button className="btn update" onClick={() => zoomOut()}>
+//         Zoom Out
+//       </button>
+//       <br />
+//       <br />
+//       <p>Highlight / Zoom - able Line Chart</p>
+//       <LineChart
+//         width={800}
+//         height={400}
+//         data={data}
+//         // onMouseDown={event => mouseDown(event)}
+//         // onMouseMove={event => mouseMove(event)}
+//         onMouseDown={e => setData((DATA.refAreaLeft = e.activeLabel))}
+//         onMouseMove={e => {
+//           console.log('M-Move: ', e)
+//           return (
+//             DATA.refAreaLeft && setData((DATA.refAreaRight = e.activeLabel))
+//           )
+//         }}
+//         onMouseUp={() => zoom()}>
+//         <CartesianGrid strokeDasharray="3 3" />
+//         <XAxis
+//           allowDataOverflow={true}
+//           dataKey="name"
+//           domain={[left, right]}
+//           type="number"
+//         />
+//         <YAxis
+//           allowDataOverflow={true}
+//           domain={[bottom, top]}
+//           type="number"
+//           yAxisId="1"
+//         />
+//         <YAxis
+//           orientation="right"
+//           allowDataOverflow={true}
+//           domain={[bottom2, top2]}
+//           type="number"
+//           yAxisId="2"
+//         />
+//         <Tooltip />
+//         <Line
+//           yAxisId="1"
+//           type="natural"
+//           dataKey="cost"
+//           stroke="#8884d8"
+//           animationDuration={300}
+//         />
+//         <Line
+//           yAxisId="2"
+//           type="natural"
+//           dataKey="impression"
+//           stroke="#82ca9d"
+//           animationDuration={300}
+//         />
+
+//         {refAreaLeft && refAreaRight ? (
+//           <ReferenceArea
+//             yAxisId="1"
+//             x1={refAreaLeft}
+//             x2={refAreaRight}
+//             strokeOpacity={0.3}
+//           />
+//         ) : null}
+//       </LineChart>
+//     </div>
+//   )
+// }
+
+// export default Index
+
 class Index extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = initialState
+  state = {
+    ...initialState
   }
 
   zoom() {
     let { refAreaLeft, refAreaRight, data } = this.state
-
+    logColor(this.state)
     if (refAreaLeft === refAreaRight || refAreaRight === '') {
       this.setState(() => ({
         refAreaLeft: '',
@@ -131,24 +284,23 @@ class Index extends React.Component {
 
     return (
       <div className="highlight-bar-charts">
-        <a
-          href="javascript: void(0);"
-          className="btn update"
-          onClick={this.zoomOut.bind(this)}>
+        <br />
+        <button className="btn update" onClick={() => this.zoomOut()}>
           Zoom Out
-        </a>
-
+        </button>
+        <br />
+        <br />
         <p>Highlight / Zoom - able Line Chart</p>
         <LineChart
           width={800}
           height={400}
           data={data}
           onMouseDown={e => this.setState({ refAreaLeft: e.activeLabel })}
-          onMouseMove={e =>
-            this.state.refAreaLeft &&
-            this.setState({ refAreaRight: e.activeLabel })
-          }
-          onMouseUp={this.zoom.bind(this)}>
+          onMouseMove={e => {
+            console.log('M-Move: ', e)
+            return refAreaLeft && this.setState({ refAreaRight: e.activeLabel })
+          }}
+          onMouseUp={() => this.zoom()}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             allowDataOverflow={true}
